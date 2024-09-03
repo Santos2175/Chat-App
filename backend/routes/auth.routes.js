@@ -16,6 +16,6 @@ router.post('/login', login);
 //@route  GET /api/auth/logout
 //@desc   user logout
 //@access Private
-router.get('/logout', logout);
+router.post('/logout', logout);
 
 export default router;
