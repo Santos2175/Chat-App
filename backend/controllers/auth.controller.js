@@ -1,5 +1,6 @@
 import User from '../models/user.model.js';
 import bcryptjs from 'bcryptjs';
+import generateTokenAndSetCookie from '../utils/generateToken.js';
 
 //handles signup
 export const signup = async (req, res) => {
@@ -32,14 +33,20 @@ export const signup = async (req, res) => {
       profilePic: gender === 'male' ? boyProfilePic : girlProfilePic,
     });
 
-    await newUser.save();
+    if (newUser) {
+      //generate token
+      await generateTokenAndSetCookie(newUser._id, res);
+      await newUser.save();
 
-    res.status(201).json({
-      _id: newUser._id,
-      fullName: newUser.fullName,
-      username: newUser.username,
-      profilePic: newUser.profilePic,
-    });
+      res.status(201).json({
+        _id: newUser._id,
+        fullName: newUser.fullName,
+        username: newUser.username,
+        profilePic: newUser.profilePic,
+      });
+    } else {
+      res.status(400).json({ error: 'invalid user data' });
+    }
   } catch (err) {
     console.error(err.message);
     res.status(500).json({ msg: 'Server Error' });
