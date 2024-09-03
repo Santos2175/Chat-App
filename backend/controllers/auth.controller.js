@@ -1,5 +1,5 @@
 import User from '../models/user.model.js';
-import bcryptjs from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 import generateTokenAndSetCookie from '../utils/generateToken.js';
 
 //handles signup
@@ -18,8 +18,8 @@ export const signup = async (req, res) => {
     }
 
     //Hash password
-    const salt = await bcryptjs.genSalt(10);
-    const hashedPassword = await bcryptjs.hash(password, salt);
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     //https://avatar-placeholder.iran.liara.run/
     const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
@@ -54,8 +54,33 @@ export const signup = async (req, res) => {
 };
 
 //handles login
-export const login = (req, res) => {
-  res.send('Login Route');
+export const login = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    const user = await User.findOne({ username });
+
+    const isValidPassword = await bcrypt.compare(
+      password,
+      user?.password || ''
+    );
+
+    if (!user || !isValidPassword) {
+      return res.status(400).json({ error: 'Invalid Credentials' });
+    }
+
+    generateTokenAndSetCookie(user._id, res);
+
+    res.status(200).json({
+      _id: user._id,
+      fullName: user.fullName,
+      username: user.username,
+      profilePic: user.profilePic,
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ error: 'Server Error' });
+  }
 };
 
 //handles logout

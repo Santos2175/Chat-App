@@ -3,15 +3,15 @@ import { login, logout, signup } from '../controllers/auth.controller.js';
 
 const router = Router();
 
-//@route  GET /api/auth/signup
+//@route  POST /api/auth/signup
 //@desc   user signup
 //@access Public
-router.get('/signup', signup);
+router.post('/signup', signup);
 
-//@route  GET /api/auth/login
+//@route  POST /api/auth/login
 //@desc   user login
 //@access Public
-router.get('/login', login);
+router.post('/login', login);
 
 //@route  GET /api/auth/logout
 //@desc   user logout
