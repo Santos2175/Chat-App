@@ -5,7 +5,7 @@ import useConversation from '../../zustand/useConversation';
 import toast from 'react-hot-toast';
 
 const SearchInput = () => {
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const { conversations } = useGetConversations();
   const { setSelectedConversation } = useConversation();
 
