@@ -57,8 +57,6 @@ export const signup = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { username, password } = req.body;
-    console.log('At backend', username);
-    console.log('At backend', password);
 
     const user = await User.findOne({ username });
 
