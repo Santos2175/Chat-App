@@ -5,7 +5,6 @@ import Message from '../models/message.model.js';
 export const sendMessage = async (req, res) => {
   try {
     const { message } = req.body;
-    console.log(message);
     const { id: receiverId } = req.params;
     const senderId = req.user._id;
 
@@ -36,7 +35,7 @@ export const sendMessage = async (req, res) => {
 
     await Promise.all([conversation.save(), newMessage.save()]);
 
-    res.status(200).json({ msg: 'Message was sent successfully' });
+    res.status(200).json(newMessage);
   } catch (err) {
     console.error(err.message);
     res.status(500).json({ error: 'Server Error' });

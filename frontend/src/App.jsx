@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import Login from './pages/login/Login';
 import SignUp from './pages/signup/Signup';
 import { useAuthContext } from './context/AuthContext';
+import MessageSkeleton from './components/skeletons/MessageSkeleton';
 
 function App() {
   const { authUser } = useAuthContext();
@@ -20,6 +21,7 @@ function App() {
         <Route
           path='/signup'
           element={authUser ? <Navigate to='/' /> : <SignUp />}></Route>
+        <Route path='/skeleton' element={<MessageSkeleton />}></Route>
       </Routes>
       <Toaster />
     </div>
