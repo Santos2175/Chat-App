@@ -59,6 +59,7 @@ const useSignup = () => {
 
 export default useSignup;
 
+//function to handle input errors
 function handleInputErrors({
   fullName,
   username,
