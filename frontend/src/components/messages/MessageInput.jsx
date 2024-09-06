@@ -28,7 +28,7 @@ const MessageInput = () => {
           {loading ? (
             <span className='loading loading-spinner'></span>
           ) : (
-            <BsSend />
+            <BsSend className=' text-white hover:text-sky-400 hover:scale-150' />
           )}
         </button>
       </div>
