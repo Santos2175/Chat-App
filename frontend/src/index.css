@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url('/background.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-} */
-
 body {
   position: relative;
   margin: 0;
@@ -39,24 +30,6 @@ body::after {
   height: 100%;
   background: rgba(0, 0, 0, 0.4); /* Dim the background */
   z-index: -1; /* Ensure it remains behind the content */
-}
-
-/* dark mode looking scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #555;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #121212;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #242424;
 }
 
 /* SHAKE ANIMATION ON HORIZONTAL DIRECTION */
