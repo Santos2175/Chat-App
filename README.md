@@ -93,4 +93,4 @@ For any questions or feedback:
 - **GitHub** - [https://github.com/Santos2175](https://github.com/Santos2175)
 
 
-
+### **⚠️ Note:** The website may take time for initial loading as it is using free hosting service
