@@ -1,7 +1,7 @@
 import React from 'react';
 import { getRandomEmoji } from '../../utils/emojis';
-import Conversation from './Conversation';
-import useGetConversations from '../../hooks/useGetConversations';
+import Conversation from './Conversation.jsx';
+import useGetConversations from '../../hooks/useGetConversations.js';
 
 const Conversations = () => {
   const { loading, conversations } = useGetConversations();
