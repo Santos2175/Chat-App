@@ -1,4 +1,4 @@
-# Connectify
+# Connectify - [Live Demo](https://chat-app-qo06.onrender.com)
 
 ## Table of Contents
 - [Introduction](#introduction)
