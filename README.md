@@ -89,7 +89,7 @@ MONGO_DB_URI=
 ## Contact
 
 For any questions or feedback:
-- **Your Name** - [santoshgurung2175@gmail.com](mailto:santoshgurung2175@gmail.com)
+- **Santosh Gurung** - [santoshgurung2175@gmail.com](mailto:santoshgurung2175@gmail.com)
 - **GitHub** - [https://github.com/Santos2175](https://github.com/Santos2175)
 
 
